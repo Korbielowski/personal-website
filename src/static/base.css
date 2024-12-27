@@ -17,6 +17,10 @@ html {
     overflow-x: hidden;
 }
 
+code {
+    border-radius: 10px;
+}
+
 ::-webkit-scrollbar {
     width: 10px;
 }
@@ -26,7 +30,7 @@ html {
 }
 
 ::-webkit-scrollbar-thumb {
-    background-color: #6bffb8;
+    background-color: var(--btn-h-color);
     border-radius: 10px;
     margin: 10px;
 }

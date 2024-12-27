@@ -1,19 +1,11 @@
 from flask import Flask, render_template
 from os import listdir
-import toml
+import markdown
 
 app = Flask(__name__)
 
 
-class Project:
-    def __init__(self, file_name, title, h, body):
-        self.file_name = file_name
-        self.title = title
-        self.h = h
-        self.body = body
-
-
-class Article:
+class Content:
     def __init__(self, file_name, title, date, body):
         self.file_name = file_name
         self.title = title
@@ -31,46 +23,39 @@ def blog():
     articles = []
     for article in listdir("blog/"):
         with open("blog/" + article, "r") as file:
-            articles.append(read_article(file))
-    articles.sort(key=lambda a: a.date, reverse=True)
+            articles.append(read_content(file))
+    articles.sort(key=lambda c: c.date, reverse=True)
     return render_template("blog.html", articles=articles)
 
 
-@app.route("/article/<article_name>")
-def article(article_name: str):
-    with open("blog/" + article_name + ".toml", "r") as file:
-        return render_template("article.html", article=read_article(file))
+@app.route("/articles/<article_name>")
+def articles(article_name: str):
+    with open("blog/" + article_name + ".md", "r") as file:
+        return render_template("article.html", article=read_content(file))
 
 
 @app.route("/portfolio")
 def portfolio():
     projects = []
-    for article in listdir("projects/"):
-        with open("projects/" + article, "r") as file:
-            projects.append(read_project(file))
-    projects.sort(key=lambda p: p.date, reverse=True)
+    for project in listdir("projects/"):
+        with open("projects/" + project, "r") as file:
+            projects.append(read_content(file))
+    projects.sort(key=lambda c: c.date, reverse=True)
     return render_template("portfolio.html", projects=projects)
 
 
-@app.route("/project/<project_name>")
-def project(project_name: str):
-    with open("projects/" + project_name + ".toml", "r") as file:
-        return render_template("project.html", project_name=read_project(file))
+@app.route("/projects/<project_name>")
+def projects(project_name: str):
+    with open("projects/" + project_name + ".md", "r") as file:
+        return render_template("project.html", project=read_content(file))
 
 
-def read_project(file) -> Project:
-    article_file = toml.load(file)
-    file_name = file.name.removesuffix(".toml").removeprefix("blog/")
-    title = article_file["article-data"]["title"]
-    date = article_file["article-data"]["date"]
-    body = article_file["article"]["body"]
-    return Project(file_name, title, date, body)
-
-
-def read_article(file) -> Article:
-    article_file = toml.load(file)
-    file_name = file.name.removesuffix(".toml").removeprefix("blog/")
-    title = article_file["article-data"]["title"]
-    date = article_file["article-data"]["date"]
-    body = article_file["article"]["body"]
-    return Article(file_name, title, date, body)
+def read_content(file) -> Content:
+    file_name = (
+        file.name.removesuffix(".md").removeprefix("blog/").removeprefix("projects/")
+    )
+    lines: list[str] = file.readlines()
+    title = lines[0].split('"')[1]
+    date = lines[1].split('"')[1]
+    body = markdown.markdown("".join(lines[2:]), extensions=["extra"])
+    return Content(file_name, title, date, body)

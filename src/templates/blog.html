@@ -37,7 +37,7 @@
         <ul class="articles-list">
             {% for article in articles %}
             <li class="article">
-                <a href="{{ url_for('article', article_name=article.file_name) }}">
+                <a href="{{ url_for('articles', article_name=article.file_name) }}">
                     {{ article.title }}
                 </a>
                 <p class="article-date">{{ article.date }}</p>

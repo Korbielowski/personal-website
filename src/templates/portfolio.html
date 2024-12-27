@@ -3,13 +3,48 @@
 
 {% block style %}
 <style>
+    .projects-container {
+        margin-top: 3vh;
+        max-width: fit-content;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .projects-list {
+        list-style-type: none;
+        display: grid;
+        grid-template-columns: auto auto;
+        gap: 100px 350px;
+    }
+
+    .project {
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+        font-size: xx-large;
+    }
+
+    .project-date {
+        font-size: x-large;
+    }
 </style>
 {% endblock style %}
 
 {% block content %}
 
 <body>
-
+    <div class="projects-container">
+        <ul class="projects-list">
+            {% for project in projects %}
+            <li class="project">
+                <a href="{{ url_for('projects', project_name=project.file_name) }}">
+                    {{ project.title }}
+                </a>
+                <p class="project-date">{{ project.date }}</p>
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
 </body>
 
 {% endblock content %}
