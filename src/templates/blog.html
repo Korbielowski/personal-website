@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+{% block title %}Blog{% endblock %}
+
+{% block style %}
+<style>
+    .articles-container {
+        margin-top: 3vh;
+        max-width: fit-content;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .articles-list {
+        list-style-type: none;
+        display: grid;
+        grid-template-columns: auto auto;
+        gap: 100px 350px;
+    }
+
+    .article {
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+        font-size: xx-large;
+    }
+
+    .article-date {
+        font-size: x-large;
+    }
+</style>
+{% endblock style %}
+
+{% block content %}
+
+<body>
+    <div class="articles-container">
+        <ul class="articles-list">
+            {% for article in articles %}
+            <li class="article">
+                <a href="{{ url_for('article', article_name=article.file_name) }}">
+                    {{ article.title }}
+                </a>
+                <p class="article-date">{{ article.date }}</p>
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
+</body>
+
+{% endblock content %}

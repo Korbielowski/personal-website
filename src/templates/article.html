@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% block title %}article.title{% endblock %}
+
+{% block style %}
+<style>
+    .article-title {
+        font-size: 6em;
+    }
+
+    .header-container {
+        margin: 3vh auto 5vh;
+        max-width: fit-content;
+    }
+
+    .article-container {
+        margin-top: 3vh;
+        max-width: 50vw;
+        margin-left: auto;
+        margin-right: auto;
+        text-align: left;
+        line-height: 1.8;
+        font-size: x-large;
+    }
+</style>
+{% endblock style %}
+
+{% block content %}
+
+<body>
+    <header class="header-container">
+        <h1 class="article-title">{{ article.title }}</h1>
+    </header>
+    <div class="article-container">
+        {{ article.body }}
+    </div>
+</body>
+
+{% endblock content %}

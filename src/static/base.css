@@ -1,0 +1,74 @@
+:root {
+    --btn-color: #5DB996;
+    --btn-h-color: #118B50;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Roboto", serif;
+    font-weight: 400;
+}
+
+html {
+    scroll-behavior: smooth;
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #6bffb8;
+    border-radius: 10px;
+    margin: 10px;
+}
+
+body {
+    color: aliceblue;
+    font-size: 20px;
+    background-color: #121212;
+}
+
+i {
+    font-size: xx-large;
+}
+
+a {
+    text-decoration: none;
+    background-color: transparent;
+    color: var(--btn-color);
+}
+
+a:hover {
+    transition: linear 0.2s;
+    color: var(--btn-h-color);
+}
+
+ul {
+    list-style-type: none;
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+}
+
+.navBar {
+    background-color: #202124;
+    padding: 10px;
+    display: flex;
+}
+
+.navigation-container {
+    margin-right: auto;
+}
+
+.links-list-container {
+    margin-left: auto;
+}
