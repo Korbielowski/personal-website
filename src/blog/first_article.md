@@ -5,11 +5,30 @@
 I am learning everything at the moment, so it's all good
 Gone camping! Be back soon.
 
-- [x] Write the press release
-- [ ] Update the website
-- [ ] Contact the media
+- First item
+- Second item
+- Third item
 
-~~The world is flat.~~
+---
+
+| Syntax | Description |
+| ----------- | ----------- |
+| Header | Title |
+| Paragraph | Text |
+
+
+<div class='mermaid'>
+sequenceDiagram
+Alice->>John: Hello John, how are you?
+loop HealthCheck
+    John->>John: Fight against hypochondria
+end
+Note right of John: Rational thoughts!
+John-->>Alice: Great!
+John->>Bob: How about you?
+Bob-->>John: Jolly good!
+</div>
+
 [title](https://dawidstasinski.xyz/)
 That is so funny
 ```c

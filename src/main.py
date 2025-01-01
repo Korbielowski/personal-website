@@ -1,5 +1,6 @@
 from flask import Flask, render_template
 from os import listdir
+from datetime import datetime
 import markdown
 
 app = Flask(__name__)
@@ -15,7 +16,7 @@ class Content:
 
 @app.route("/")
 def welcome_page():
-    return render_template("welcome_page.html")
+    return render_template("welcome_page.html", year=datetime.now().year)
 
 
 @app.route("/blog")
@@ -25,13 +26,15 @@ def blog():
         with open("blog/" + article, "r") as file:
             articles.append(read_content(file))
     articles.sort(key=lambda c: c.date, reverse=True)
-    return render_template("blog.html", articles=articles)
+    return render_template("blog.html", articles=articles, year=datetime.now().year)
 
 
 @app.route("/articles/<article_name>")
 def articles(article_name: str):
     with open("blog/" + article_name + ".md", "r") as file:
-        return render_template("article.html", article=read_content(file))
+        return render_template(
+            "article.html", article=read_content(file), year=datetime.now().year
+        )
 
 
 @app.route("/portfolio")
@@ -41,13 +44,17 @@ def portfolio():
         with open("projects/" + project, "r") as file:
             projects.append(read_content(file))
     projects.sort(key=lambda c: c.date, reverse=True)
-    return render_template("portfolio.html", projects=projects)
+    return render_template(
+        "portfolio.html", projects=projects, year=datetime.now().year
+    )
 
 
 @app.route("/projects/<project_name>")
 def projects(project_name: str):
     with open("projects/" + project_name + ".md", "r") as file:
-        return render_template("project.html", project=read_content(file))
+        return render_template(
+            "project.html", project=read_content(file), year=datetime.now().year
+        )
 
 
 def read_content(file) -> Content:

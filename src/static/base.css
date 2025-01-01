@@ -1,6 +1,20 @@
 :root {
     --btn-color: #5DB996;
     --btn-h-color: #118B50;
+    --bkg-color: #121212;
+    --color-surface75: #bbbaa6;
+    --color-surface50: #7c7c6f;
+    --color-surface25: #42433d;
+}
+
+::-webkit-scrollbar {
+    width: 10px;
+    background-color: var(--color-surface25);
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: var(--btn-h-color);
+    margin: 10px;
 }
 
 * {
@@ -14,41 +28,55 @@
 html {
     scroll-behavior: smooth;
     max-width: 100%;
+    min-height: 100%;
     overflow-x: hidden;
 }
 
 code {
     border-radius: 10px;
-}
-
-::-webkit-scrollbar {
-    width: 10px;
-}
-
-::-webkit-scrollbar-track {
-    border-radius: 10px;
-}
-
-::-webkit-scrollbar-thumb {
-    background-color: var(--btn-h-color);
-    border-radius: 10px;
-    margin: 10px;
+    margin: 3vh auto;
 }
 
 body {
-    color: aliceblue;
     font-size: 20px;
-    background-color: #121212;
+    background-image: linear-gradient(90deg, rgba(13, 121, 107, 1) 0%, rgba(22, 29, 25, 1) 50%, rgba(16, 76, 28, 1) 100%);
+    /* animation: gradient 15s ease infinite; */
+    height: auto;
+    color: aliceblue;
+    display: flex;
+    flex-direction: column;
+    min-height: 100%;
+    height: 100%;
+    align-items: center;
 }
+
+footer {
+    height: 2vh;
+    color: var(--color-surface75);
+    /* margin: 0 auto; */
+}
+
+/* @keyframes gradient {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+} */
 
 i {
     font-size: xx-large;
 }
 
 a {
+    color: aliceblue;
     text-decoration: none;
-    background-color: transparent;
-    color: var(--btn-color);
 }
 
 a:hover {
@@ -64,7 +92,9 @@ ul {
 }
 
 .navBar {
+    width: 100%;
     background-color: #202124;
+    border-bottom: var(--color-surface25) solid;
     padding: 10px;
     display: flex;
 }
@@ -75,4 +105,15 @@ ul {
 
 .links-list-container {
     margin-left: auto;
+}
+
+.wrapper-container {
+    max-width: 60vw;
+    margin: 5vh auto;
+    background: rgba(18, 18, 18, 1);
+    padding: 1vh 1vw;
+    border-radius: 10px;
+    border-color: var(--color-surface25);
+    border-style: solid;
+    /* opacity: 0.9; */
 }

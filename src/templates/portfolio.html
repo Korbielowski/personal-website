@@ -1,15 +1,8 @@
 {% extends "base.html" %}
-{% block title %}project.title{% endblock %}
+{% block title %}Portfolio{% endblock %}
 
 {% block style %}
 <style>
-    .projects-container {
-        margin-top: 3vh;
-        max-width: fit-content;
-        margin-left: auto;
-        margin-right: auto;
-    }
-
     .projects-list {
         list-style-type: none;
         display: grid;
@@ -33,7 +26,7 @@
 {% block content %}
 
 <body>
-    <div class="projects-container">
+    <div class="wrapper-container">
         <ul class="projects-list">
             {% for project in projects %}
             <li class="project">
