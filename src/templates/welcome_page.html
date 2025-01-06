@@ -4,7 +4,42 @@
 
 {% block style %}
 <style>
+    hr {
+        margin: 6vh 0 2vh;
+        height: 0.4vh;
+        background-color: aliceblue;
+    }
 
+    .skills-container {
+        margin: 2vh 0 3vh;
+    }
+
+    .skills-title {
+        margin: 2vh 0;
+    }
+
+    .skills-separator {
+        height: 0.15vh;
+        background-color: aliceblue;
+    }
+
+    .skills-list {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 50px;
+    }
+
+    ul.skills-list li {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 10px;
+    }
+
+    ul.skills-list li i {
+        font-size: 100px;
+    }
 </style>
 {% endblock style %}
 
@@ -13,19 +48,138 @@
 <body>
     <div class="wrapper-container">
         <div class="info-container">
-            <h1>Hi everyone<br>I'm an ambitious second year student of Applied Computer Science and Measurement
-                Systems at University
+            <h1>Hi everyone &#128075;</h1>
+            <p>I'm Dawid, an ambitious third year student of Applied Computer Science and
+                Measurement Systems at University
                 of Wrocław in Poland. Every time I work on a project I'm trying to acquire new skills while pursuing my
                 genuine interests. Besides from programming I love photographing landscapes and going on bike trips.
-            </h1>
-            <p></p>
+            </p>
+            <br>
+            <p>Currently I'm working in NOKIA as a software developer working student, where I automate tests and
+                prepare test environment. During this time I was given an opportunity to learn tools such as Docker,
+                Wireshark and Robot Framework.</p>
         </div>
+        <hr>
         <div class="skills-container">
-            <ul>
-                <li></li>
-                <li></li>
-                <li></li>
-                <li></li>
+            <h2 class="skills-title">Programming languages</h2>
+            <ul class="skills-list">
+                <li>
+                    <i class="devicon-python-plain"></i>
+                    <span>Python</span>
+                </li>
+                <li>
+                    <i class="devicon-c-plain"></i>
+                    <span>C</span>
+                </li>
+                <li>
+                    <i class="devicon-cplusplus-plain"></i>
+                    <span>C++</span>
+                </li>
+                <li>
+                    <i class="devicon-bash-plain"></i>
+                    <span>Bash</span>
+                </li>
+                <!-- <li>
+                    <i class="devicon-javascript-plain"></i>
+                    <span>JavaScript</span>
+                </li> -->
+            </ul>
+            <hr class="skills-separator">
+            <h2 class="skills-title">Libraries and frameworks</h2>
+            <ul class="skills-list">
+                <li>
+                    <i class="devicon-matplotlib-plain"></i>
+                    <span>Matplotlib</span>
+                </li>
+                <li>
+                    <i class="devicon-numpy-plain"></i>
+                    <span>NumPy</span>
+                </li>
+                <li>
+                    <i class="devicon-pandas-plain"></i>
+                    <span>Pandas</span>
+                </li>
+                <li>
+                    <i class="devicon-scikitlearn-plain"></i>
+                    <span>Scikit-learn</span>
+                </li>
+                <li>
+                    <i class="devicon-django-plain"></i>
+                    <span>Django</span>
+                </li>
+                <li>
+                    <i class="devicon-flask-original"></i>
+                    <span>Flask</span>
+                </li>
+                <li>
+                    <i class="devicon-pytest-plain"></i>
+                    <span>Pytest</span>
+                </li>
+            </ul>
+            <hr class="skills-separator">
+            <h2 class="skills-title">Tools and technologies</h2>
+            <ul class="skills-list">
+                <li>
+                    <i class="devicon-git-plain"></i>
+                    <span>Git</span>
+                </li>
+                <li>
+                    <i class="devicon-gitlab-plain"></i>
+                    <span>GitLab</span>
+                </li>
+                <li>
+                    <i class="devicon-github-original"></i>
+                    <span>GitHub</span>
+                </li>
+                <li>
+                    <i class="devicon-docker-plain"></i>
+                    <span>Docker</span>
+                </li>
+                <li>
+                    <i class="devicon-linux-plain"></i>
+                    <span>Linux</span>
+                </li>
+                <li>
+                    <i class="devicon-windows8-original"></i>
+                    <span>Windows</span>
+                </li>
+                <li>
+                    <i class="devicon-sqlite-plain"></i>
+                    <span>SQlite</span>
+                </li>
+                <li>
+                    <i class="devicon-jenkins-line"></i>
+                    <span>Jenkins</span>
+                </li>
+                <li>
+                    <i class="devicon-html5-plain"></i>
+                    <span>HTML</span>
+                </li>
+                <li>
+                    <i class="devicon-css3-plain"></i>
+                    <span>CSS</span>
+                </li>
+                <li>
+                    <i class="devicon-vim-plain"></i>
+                    <span>Vim</span>
+                </li>
+                <li>
+                    <i class="devicon-markdown-original"></i>
+                    <span>Markdown</span>
+                </li>
+                <li>
+                    <i class="devicon-confluence-plain"></i>
+                    <span>Confluence</span>
+                </li>
+                <li>
+                    <i class="devicon-jira-plain"></i>
+                    <span>Jira</span>
+                </li>
+                <li>
+                    <i class="devicon-jupyter-plain"></i>
+                    <span>Jupyter</span>
+                    <span>Notebooks</span>
+                </li>
             </ul>
         </div>
     </div>

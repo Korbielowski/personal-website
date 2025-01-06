@@ -64,5 +64,18 @@ def read_content(file) -> Content:
     lines: list[str] = file.readlines()
     title = lines[0].split('"')[1]
     date = lines[1].split('"')[1]
-    body = markdown.markdown("".join(lines[2:]), extensions=["extra"])
+    body = markdown.markdown(
+        "".join(lines[2:]),
+        extensions=[
+            "extra",
+            "pymdownx.fancylists",
+            "pymdownx.saneheaders",
+            "pymdownx.tasklist",
+            "pymdownx.emoji",
+        ],
+    )
     return Content(file_name, title, date, body)
+
+
+if __name__ == "__main__":
+    app.run()

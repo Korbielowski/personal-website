@@ -2,6 +2,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block title %} {% endblock title %}</title>
+    <link rel="stylesheet" type='text/css' href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" />
     <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='favicon.ico') }}">
     <script src="https://unpkg.com/htmx.org@2.0.4"
         integrity="sha384-HGfztofotfshcF7+8n44JQL2oJmowVChPTg48S+jvZoztPfvwD79OC/LTtG6dMp+"
@@ -30,31 +31,32 @@
         <div class="navigation-container">
             <ul class="navigation-list">
                 <li>
-                    <a href="{{ url_for('welcome_page') }}" title="Home">
+                    <a href="{{ url_for('welcome_page') }}" title="Home" class="redirect-link">
                         <i class="fa-solid fa-house"></i>
                     </a>
                 </li>
                 <li>
-                    <a href="{{ url_for('blog') }}" title="Blog">
+                    <a href="{{ url_for('blog') }}" title="Blog" class="redirect-link">
                         <i class="fa-solid fa-newspaper"></i>
                     </a>
                 </li>
                 <li>
-                    <a href="{{ url_for('portfolio') }}" title="Portfolio">
+                    <a href="{{ url_for('portfolio') }}" title="Portfolio" class="redirect-link">
                         <i class="fa-solid fa-suitcase"></i>
                     </a>
                 </li>
             </ul>
         </div>
         <div class="links-list-container">
-            <ul class="links-list">
+            <ul class="navigation-list">
                 <li>
-                    <a href="https://github.com/Korbielowski" target="_blank" title="GitHub">
+                    <a href="https://github.com/Korbielowski" target="_blank" title="GitHub" class="redirect-link">
                         <i class="fa-brands fa-github"></i>
                     </a>
                 </li>
                 <li>
-                    <a href="https://www.linkedin.com/in/dawid-stasinski123/" target="_blank" title="LinkedIn">
+                    <a href="https://www.linkedin.com/in/dawid-stasinski123/" target="_blank" title="LinkedIn"
+                        class="redirect-link">
                         <i class="fa-brands fa-linkedin"></i>
                     </a>
                 </li>

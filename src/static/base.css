@@ -1,7 +1,8 @@
 :root {
     --btn-color: #5DB996;
-    --btn-h-color: #118B50;
-    --bkg-color: #121212;
+    --btn-h-color: #118b50;
+    --btn-h-dark-color: #08693a;
+    --bkg-color: #24292e;
     --color-surface75: #bbbaa6;
     --color-surface50: #7c7c6f;
     --color-surface25: #42433d;
@@ -15,6 +16,11 @@
 ::-webkit-scrollbar-thumb {
     background-color: var(--btn-h-color);
     margin: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    transition: linear 0.2s;
+    background-color: var(--btn-h-dark-color);
 }
 
 * {
@@ -38,53 +44,57 @@ code {
 }
 
 body {
-    font-size: 20px;
-    background-image: linear-gradient(90deg, rgba(13, 121, 107, 1) 0%, rgba(22, 29, 25, 1) 50%, rgba(16, 76, 28, 1) 100%);
-    /* animation: gradient 15s ease infinite; */
-    height: auto;
+    font-size: x-large;
+    background: rgba(13, 55, 34, 1);
     color: aliceblue;
     display: flex;
     flex-direction: column;
     min-height: 100%;
-    height: 100%;
     align-items: center;
 }
 
 footer {
     height: 2vh;
     color: var(--color-surface75);
-    /* margin: 0 auto; */
+    margin-bottom: 2vh;
 }
-
-/* @keyframes gradient {
-    0% {
-        background-position: 0% 50%;
-    }
-
-    50% {
-        background-position: 100% 50%;
-    }
-
-    100% {
-        background-position: 0% 50%;
-    }
-} */
 
 i {
     font-size: xx-large;
 }
 
 a {
-    color: aliceblue;
+    color: var(--btn-color);
     text-decoration: none;
 }
 
 a:hover {
     transition: linear 0.2s;
-    color: var(--btn-h-color);
+    color: var(--btn-h-dark-color);
 }
 
-ul {
+.redirect-link {
+    color: aliceblue;
+    text-decoration: none;
+}
+
+.redirect-link:hover {
+    transition: linear 0.2s;
+    color: var(--btn-h-dark-color);
+}
+
+img {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+.emojione {
+    width: 64px;
+    height: 64px;
+}
+
+.navigation-list {
     list-style-type: none;
     display: flex;
     flex-direction: row;
@@ -93,8 +103,9 @@ ul {
 
 .navBar {
     width: 100%;
-    background-color: #202124;
+    background-color: var(--bkg-color);
     border-bottom: var(--color-surface25) solid;
+    border-width: 0.5px;
     padding: 10px;
     display: flex;
 }
@@ -108,12 +119,16 @@ ul {
 }
 
 .wrapper-container {
-    max-width: 60vw;
+    max-width: 70vw;
     margin: 5vh auto;
-    background: rgba(18, 18, 18, 1);
+    background-color: var(--bkg-color);
     padding: 1vh 1vw;
     border-radius: 10px;
+    border-width: 0.5px;
     border-color: var(--color-surface25);
     border-style: solid;
-    /* opacity: 0.9; */
+}
+
+::marker {
+    color: var(--btn-h-color);
 }

@@ -4,7 +4,7 @@
 {% block style %}
 <style>
     .project-title {
-        font-size: 6em;
+        font-size: 5em;
     }
 
     .header-container {
@@ -19,20 +19,22 @@
         line-height: 1.8;
         font-size: x-large;
     }
+
+    .project-container ul {
+        margin-left: 30px;
+    }
 </style>
 {% endblock style %}
 
 {% block content %}
 
-<body>
-    <div class="wrapper-container">
-        <header class="header-container">
-            <h1 class="project-title">{{ project.title }}</h1>
-        </header>
-        <div class="project-container">
-            {{ project.body|safe }}
-        </div>
+<div class="wrapper-container">
+    <header class="header-container">
+        <h1 class="project-title">{{ project.title }}</h1>
+    </header>
+    <div class="project-container">
+        {{ project.body|safe }}
     </div>
-</body>
+</div>
 
 {% endblock content %}
