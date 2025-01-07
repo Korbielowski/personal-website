@@ -4,21 +4,26 @@
 {% block style %}
 <style>
     .projects-list {
-        list-style-type: none;
+        margin: 4vh auto;
+        width: 90%;
         display: grid;
-        grid-template-columns: auto auto;
-        gap: 100px 350px;
+        grid-template-columns: repeat(2, 1fr);
+        row-gap: 6vh;
     }
 
     .project {
         display: flex;
         flex-direction: column;
-        gap: 5px;
+        gap: 1vh 0;
         font-size: xx-large;
     }
 
+    .project:nth-child(even) {
+        align-items: self-end;
+    }
+
     .project-date {
-        font-size: x-large;
+        font-size: medium;
     }
 </style>
 {% endblock style %}

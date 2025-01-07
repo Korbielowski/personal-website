@@ -1,5 +1,5 @@
 <!-- Title="Codo" -->
-<!-- Date="04.01.2025" -->
+<!-- Date="23.06.2024" -->
 
 # What is it?
 
@@ -13,8 +13,8 @@ which uses <a href="https://pubs.opengroup.org/onlinepubs/7908799/xcurses/curses
 
 # State of the application
 
-As of time of writing this Codo users are able to to create, edit and delete their todo-lists, the same goes for tasks. Tasks can be marked as done, when
-all of tasks in a same todo-list are done, the todo-list is also marked as done. I'm currently working on a subtaks feature, which is about 90% done.
+As of the time of writing this Codo users are able to create, edit, and delete their to-do lists, the same goes for tasks. Tasks can be marked as done, when
+all of the tasks in the same to-do list are done, the to-do list is also marked as done. I'm currently working on a subtask feature, which is about 90% done.
 
 ![alt text](../static/create_list.png)
 *Creating new todo-list*
@@ -23,9 +23,7 @@ all of tasks in a same todo-list are done, the todo-list is also marked as done.
 
 # Future
 
-I'm planning to add some new functionalities that would enhace the use of application in various ways. Details windows would
-enable users to inspect their task and todo-list to see more information about them, e.g. number of tasks in a list and list's description, same goes for tasks.
-Another addition would be keymaps, which could be used to smoothly operate in Codo app in vim-like fashion, those keymaps of course could be changed via configuration file. Next thing that could be changed with use of those config files would be color theme of the application and default icons for various elements of the UI, e.g. tick icon, which appears when task or list is done. Last but not least the search option to easily and efficiently find tasks by their name or description, especially useful when the list grows to tens or hunderds of tasks.
+I'm planning to add some new functionalities that would enhance the use of application in various ways. Details windows would enable users to inspect their tasks and to-do lists to see more information about them, e.g. number of tasks in a list and the list's description, the same goes for tasks. Another addition would be keymaps, which could be used to smoothly operate in the Codo app in a Vim-like fashion, those keymaps of course could be changed via configuration file. The next thing that could be changed with the use of those config files would be the color theme of the application and default icons for various elements of the UI, e.g. tick icon, which appears when a task or list is done. Last but not least the search option to easily and efficiently find tasks by their name or description, is especially useful when the list grows to tens or hundreds of tasks.
 
 <br>
 

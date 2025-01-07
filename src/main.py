@@ -1,6 +1,7 @@
 from flask import Flask, render_template
 from os import listdir
 from datetime import datetime
+import time
 import markdown
 
 app = Flask(__name__)
@@ -25,7 +26,9 @@ def blog():
     for article in listdir("blog/"):
         with open("blog/" + article, "r") as file:
             articles.append(read_content(file))
-    articles.sort(key=lambda c: c.date, reverse=True)
+    articles.sort(
+        key=lambda c: time.mktime(time.strptime(c.date, "%d.%m.%Y")), reverse=True
+    )
     return render_template("blog.html", articles=articles, year=datetime.now().year)
 
 
@@ -43,7 +46,9 @@ def portfolio():
     for project in listdir("projects/"):
         with open("projects/" + project, "r") as file:
             projects.append(read_content(file))
-    projects.sort(key=lambda c: c.date, reverse=True)
+    projects.sort(
+        key=lambda c: time.mktime(time.strptime(c.date, "%d.%m.%Y")), reverse=True
+    )
     return render_template(
         "portfolio.html", projects=projects, year=datetime.now().year
     )

@@ -73,6 +73,12 @@ a:hover {
     color: var(--btn-h-dark-color);
 }
 
+/* p {
+    text-wrap: pretty;
+    white-space: unset;
+    hyphens: auto;
+} */
+
 .redirect-link {
     color: aliceblue;
     text-decoration: none;
@@ -120,6 +126,7 @@ img {
 
 .wrapper-container {
     max-width: 70vw;
+    min-width: 70vw;
     margin: 5vh auto;
     background-color: var(--bkg-color);
     padding: 1vh 1vw;
