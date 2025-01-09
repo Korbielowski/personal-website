@@ -38,12 +38,7 @@ def blog(name: str):
         key=lambda c: time.mktime(time.strptime(c["date"], "%d.%m.%Y")),
         reverse=True,
     )
-    if articles:
-        return render_template(
-            "articles.html", articles=articles, year=year, is_blog=True
-        )
-    else:
-        return render_template("welcome_page.html", year=year)
+    return render_template("articles.html", articles=articles, year=year, is_blog=True)
 
 
 @app.route("/portfolio", defaults={"name": None})
