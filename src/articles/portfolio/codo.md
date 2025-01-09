@@ -1,12 +1,14 @@
-<!-- Title="Codo" -->
-<!-- Date="23.06.2024" -->
+title: Codo
+file: codo
+date: 01.02.2024
+---
 
 # What is it?
 
 Codo is a TUI(terminal-user-interface) application for Linux operating system written in C programming language,
 which uses <a href="https://pubs.opengroup.org/onlinepubs/7908799/xcurses/curses.h.html" target="_blank">ncurses</a> for UI and <a href="https://sqlite.org/docs.html" target="_blank">SQlite</a> for database management. 
 
-<img src="{{ url_for('static', filename='codo_example.png') }}" alt="Example image of Codo running">
+![Example image of Codo running]({{ url_for('static', filename='codo_example.png') }})
 *Example image of Codo running*
 
 <br>
@@ -16,7 +18,7 @@ which uses <a href="https://pubs.opengroup.org/onlinepubs/7908799/xcurses/curses
 As of the time of writing this Codo users are able to create, edit, and delete their to-do lists, the same goes for tasks. Tasks can be marked as done, when
 all of the tasks in the same to-do list are done, the to-do list is also marked as done. I'm currently working on a subtask feature, which is about 90% done.
 
-<img src="{{ url_for('static', filename='create_list.png') }}" alt="Creating a to-do list in Codo">
+![Creating new to-do list]({{ url_for('static', filename='create_list.png') }})
 *Creating new to-do list*
 
 <br>

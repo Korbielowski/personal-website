@@ -1,18 +1,22 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, render_template_string
+import markdown
+from flask_flatpages import FlatPages
 from os import listdir
 from datetime import datetime
 import time
-import markdown
+
+
+def render_links(text):
+    prerendered_body = render_template_string(text)
+    return markdown.markdown(prerendered_body, extensions=["pymdownx.tasklist"])
+
 
 app = Flask(__name__)
-
-
-class Content:
-    def __init__(self, file_name, title, date, body):
-        self.file_name = file_name
-        self.title = title
-        self.date = date
-        self.body = body
+app.config["FLATPAGES_AUTO_RELOAD"] = True
+app.config["FLATPAGES_EXTENSION"] = ".md"
+app.config["FLATPAGES_ROOT"] = "articles"
+app.config["FLATPAGES_HTML_RENDERER"] = render_links
+flat_pages = FlatPages(app)
 
 
 @app.route("/")
@@ -20,66 +24,43 @@ def welcome_page():
     return render_template("welcome_page.html", year=datetime.now().year)
 
 
-@app.route("/blog")
-def blog():
+@app.route("/blog", defaults={"name": None})
+@app.route("/blog/<name>")
+def blog(name: str):
+    year = datetime.now().year
+    if name:
+        article = flat_pages.get_or_404(f"blog/{name}")
+        return render_template("article.html", article=article, year=year)
     articles = []
-    for article in listdir("blog/"):
-        with open("blog/" + article, "r") as file:
-            articles.append(read_content(file))
+    for article in listdir("articles/blog/"):
+        print(article)
+        articles.append(flat_pages.get_or_404("blog/" + article.removesuffix(".md")))
     articles.sort(
-        key=lambda c: time.mktime(time.strptime(c.date, "%d.%m.%Y")), reverse=True
+        key=lambda c: time.mktime(time.strptime(c["date"], "%d.%m.%Y")),
+        reverse=True,
     )
-    return render_template("blog.html", articles=articles, year=datetime.now().year)
+    return render_template("articles.html", articles=articles, year=year, is_blog=True)
 
 
-@app.route("/articles/<article_name>")
-def articles(article_name: str):
-    with open("blog/" + article_name + ".md", "r") as file:
-        return render_template(
-            "article.html", article=read_content(file), year=datetime.now().year
+@app.route("/portfolio", defaults={"name": None})
+@app.route("/portfolio/<name>")
+def portfolio(name: str):
+    year = datetime.now().year
+    if name:
+        article = flat_pages.get_or_404(f"portfolio/{name}")
+        return render_template("article.html", article=article, year=year)
+    articles = []
+    for article in listdir("articles/portfolio/"):
+        print(article)
+        articles.append(
+            flat_pages.get_or_404("portfolio/" + article.removesuffix(".md"))
         )
-
-
-@app.route("/portfolio")
-def portfolio():
-    projects = []
-    for project in listdir("projects/"):
-        with open("projects/" + project, "r") as file:
-            projects.append(read_content(file))
-    projects.sort(
-        key=lambda c: time.mktime(time.strptime(c.date, "%d.%m.%Y")), reverse=True
+        print("afyer")
+    articles.sort(
+        key=lambda c: time.mktime(time.strptime(c["date"], "%d.%m.%Y")),
+        reverse=True,
     )
-    return render_template(
-        "portfolio.html", projects=projects, year=datetime.now().year
-    )
-
-
-@app.route("/projects/<project_name>")
-def projects(project_name: str):
-    with open("projects/" + project_name + ".md", "r") as file:
-        return render_template(
-            "project.html", project=read_content(file), year=datetime.now().year
-        )
-
-
-def read_content(file) -> Content:
-    file_name = (
-        file.name.removesuffix(".md").removeprefix("blog/").removeprefix("projects/")
-    )
-    lines: list[str] = file.readlines()
-    title = lines[0].split('"')[1]
-    date = lines[1].split('"')[1]
-    body = markdown.markdown(
-        "".join(lines[2:]),
-        extensions=[
-            "extra",
-            "pymdownx.fancylists",
-            "pymdownx.saneheaders",
-            "pymdownx.tasklist",
-            "pymdownx.emoji",
-        ],
-    )
-    return Content(file_name, title, date, body)
+    return render_template("articles.html", articles=articles, year=year, is_blog=False)
 
 
 if __name__ == "__main__":

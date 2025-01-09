@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-{% block title %}Blog{% endblock %}
+{% block title %}Articles{% endblock %}
 
 {% block style %}
 <style>
@@ -8,15 +8,26 @@
         width: 90%;
         display: grid;
         grid-template-columns: repeat(2, 1fr);
+        list-style-type: none;
         row-gap: 6vh;
     }
 
+    .article {
+        gap: 0.3vh;
+        display: flex;
+        flex-direction: column;
+    }
+
     .article:nth-child(even) {
-        align-items: self-end;
+        align-items: flex-end;
     }
 
     .article-date {
         font-size: medium;
+    }
+
+    .article-link {
+        font-size: xx-large;
     }
 </style>
 {% endblock style %}
@@ -28,8 +39,12 @@
         <ul class="articles-list">
             {% for article in articles %}
             <li class="article">
-                <a href="{{ url_for('articles', article_name=article.file_name) }}">
-                    {{ article.title }}
+                {% if is_blog %}
+                    <a href="{{ url_for('blog', name=article.file ) }}" class="article-link">
+                {% else %}
+                    <a href="{{ url_for('portfolio', name=article.file ) }}" class="article-link">
+                {% endif %}
+                {{ article.title }}
                 </a>
                 <p class="article-date">{{ article.date }}</p>
             </li>
