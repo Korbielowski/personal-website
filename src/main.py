@@ -33,13 +33,17 @@ def blog(name: str):
         return render_template("article.html", article=article, year=year)
     articles = []
     for article in listdir("articles/blog/"):
-        print(article)
         articles.append(flat_pages.get_or_404("blog/" + article.removesuffix(".md")))
     articles.sort(
         key=lambda c: time.mktime(time.strptime(c["date"], "%d.%m.%Y")),
         reverse=True,
     )
-    return render_template("articles.html", articles=articles, year=year, is_blog=True)
+    if articles:
+        return render_template(
+            "articles.html", articles=articles, year=year, is_blog=True
+        )
+    else:
+        return render_template("welcome_page.html", year=year)
 
 
 @app.route("/portfolio", defaults={"name": None})
@@ -51,11 +55,9 @@ def portfolio(name: str):
         return render_template("article.html", article=article, year=year)
     articles = []
     for article in listdir("articles/portfolio/"):
-        print(article)
         articles.append(
             flat_pages.get_or_404("portfolio/" + article.removesuffix(".md"))
         )
-        print("afyer")
     articles.sort(
         key=lambda c: time.mktime(time.strptime(c["date"], "%d.%m.%Y")),
         reverse=True,
