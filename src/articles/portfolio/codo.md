@@ -15,8 +15,8 @@ which uses <a href="https://pubs.opengroup.org/onlinepubs/7908799/xcurses/curses
 
 # State of the application
 
-As of the time of writing this Codo users are able to create, edit, and delete their to-do lists, the same goes for tasks. Tasks can be marked as done, when
-all of the tasks in the same to-do list are done, the to-do list is also marked as done. I'm currently working on a subtask feature, which is about 90% done.
+As of the time of writing this Codo users are able to create, edit, and delete their to-do lists, the same goes for tasks. User can also create subtasks. Tasks can be marked as done, when
+all of the tasks in the same to-do list are done, the to-do list is also marked as done. Currently I'm working on details window and better UI, which will vastly improve user experience.
 
 ![Creating new to-do list]({{ url_for('static', filename='create_list.png') }})
 *Creating new to-do list*
@@ -40,7 +40,7 @@ I'm planning to add some new functionalities that would enhance the use of appli
     - [X] Delete
     - [X] Edit
     - [X] Change status
-- [ ] Subtasks (in-progress)
+- [X] Subtasks
 - [ ] Details window
 - [ ] Color themes
 - [ ] Keymaps
