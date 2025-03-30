@@ -1,6 +1,7 @@
 :root {
-    --text-color: #8E8E8E;
-    --bkg-color: #121212;
+    /*Maybe use this for text color: #D0D0D0*/
+    --text-color: #D4D4D4;
+    --bkg-color: #1A1A1A;
 
     --btn-default: #1B5E20;
     --btn-hover: #256D27;
@@ -134,4 +135,24 @@ img {
 
 ::marker {
     color: var(--btn-active);
+}
+
+aside {
+    position: fixed;
+    left: 10vw;
+}
+
+#navigation {
+    list-style-type: none;
+    float: left;
+    position: fixed;
+    margin: 5vh auto;
+}
+
+#navigation li {
+    margin: 1vh 0;
+}
+
+#navigation a {
+    font-size: large;
 }
