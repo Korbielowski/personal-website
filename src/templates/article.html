@@ -4,24 +4,35 @@
 {% block style %}
 <style>
     .article-title {
-        font-size: 5em;
-    }
-
-    .header-container {
-        margin: 3vh auto 5vh;
-        max-width: fit-content;
-    }
-
-    .article-container {
-        margin-top: 3vh;
-        margin-bottom: 5vh;
-        text-align: left;
-        line-height: 1.8;
-        font-size: x-large;
+        font-size: 4em;
     }
 
     .article-container ul {
-        margin-left: 30px;
+        margin-left: 1.5vw;
+    }
+
+    @media only screen and (max-width: 600px) {
+
+        .article-title {
+            font-size: 3em;
+        }
+
+        .articles-list {
+            max-width: 90vw;
+            min-width: 90vw;
+        }
+
+        .navigation-link {
+            font-size: large;
+        }
+
+        .article-date {
+            font-size: small;
+        }
+
+        .article-container ul {
+            margin-left: 4vw;
+        }
     }
 </style>
 {% endblock style %}
@@ -29,7 +40,7 @@
 {% block content %}
 
 <div class="wrapper-container">
-    <header class="header-container">
+    <header>
         <h1 class="article-title">{{ article.title }}</h1>
     </header>
     <div class="article-container">

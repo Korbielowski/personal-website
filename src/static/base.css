@@ -51,6 +51,7 @@ html {
 
 body {
     font-size: x-large;
+    line-height: 1.8;
     background: var(--bkg-color);
     display: flex;
     flex-direction: column;
@@ -60,25 +61,16 @@ body {
 
 aside {
     position: fixed;
+    margin: 5vh auto;
+    padding: 1vh 1vw;
     left: 10vw;
 }
 
-/* @media only screen and (min-width: 600px) {}
-
-@media only screen and (min-width: 768px) {}
-
-@media only screen and (min-width: 992px) {}
-
-@media only screen and (min-width: 1200px) {} */
-
 #navigation {
+    display: flex;
+    flex-direction: column;
+    gap: 1vh;
     list-style-type: none;
-    float: left;
-    margin: 5vh auto;
-}
-
-#navigation li {
-    margin: 1vh 0;
 }
 
 #navigation a {
@@ -104,8 +96,7 @@ aside {
 
 
 footer {
-    height: 2vh;
-    margin-bottom: 6vh auto;
+    margin-bottom: 10vh auto;
     display: flex;
     align-items: baseline;
     justify-content: space-between;
@@ -173,7 +164,6 @@ img {
     max-width: 55vw;
     min-width: 55vw;
     margin: 5vh auto;
-    padding: 1vh 1vw;
 }
 
 ::marker {
@@ -199,8 +189,10 @@ code {
     }
 
     footer {
-        min-width: none;
+        margin-bottom: 1vh;
+        min-width: 90vw;
         max-width: 90vw;
+        padding: 0 0;
         column-gap: 10vw;
     }
 
@@ -209,20 +201,34 @@ code {
     }
 
     .wrapper-container {
-        min-width: none;
+        margin: 1vh auto;
+        min-width: 90vw;
         max-width: 90vw;
     }
 
+    .navigation-link {
+        color: var(--text-color);
+        font-size: small;
+        text-decoration: none;
+    }
+
     aside {
-        display: none;
-        /* flex-shrink: 0;
-        width: 100%;
-        position: fixed;
-        top: 0; */
+        position: relative;
+        margin: 2vh auto;
+        padding: 0 0;
+        left: unset;
+        min-width: 90vw;
+        max-width: 90vw;
     }
 
     #navigation {
-        column-count: 4;
-        column-gap: 1vw;
+        max-width: inherit;
+        flex-direction: row;
+        gap: 10vw;
+        justify-content: left;
+    }
+
+    #navigation a {
+        font-size: small;
     }
 }
