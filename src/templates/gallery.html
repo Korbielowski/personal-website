@@ -21,7 +21,7 @@
     <div class="wrapper-container">
         <ul class="image-container">
             {% for image in images %}
-            <img src="{{ url_for('static', filename=image.path) }}" alt="{{ image.alt }}">
+            <img src="{{ url_for('static', filename=image.path) }}" alt="{{ image.name }}">
             {% endfor %}
         </ul>
     </div>

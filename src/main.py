@@ -7,9 +7,9 @@ import time
 
 
 class Image:
-    def __init__(self, path, alt=""):
+    def __init__(self, path, name=""):
         self.path = path
-        self.alt = alt
+        self.name = name
 
 
 def render_links(text):
@@ -70,7 +70,11 @@ def portfolio(name: str):
 def gallery():
     images = []
     for image in listdir("static/gallery_images/"):
-        images.append(Image("gallery_images/" + image, image))
+        images.append(
+            Image(
+                "gallery_images/" + image, image.replace(".jpg", "").replace(".JPG", "")
+            )
+        )
     return render_template("gallery.html", images=images)
 
 
