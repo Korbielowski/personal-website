@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% block title %}Gallery{% endblock %}
+
+{% block style %}
+<style>
+    .image-container {
+        display: flex;
+        flex-direction: column;
+        gap: 5vh;
+    }
+
+    img {
+        border: 2px solid black;
+    }
+</style>
+{% endblock style %}
+
+{% block content %}
+
+<body>
+    <div class="wrapper-container">
+        <ul class="image-container">
+            {% for image in images %}
+            <img src="{{ url_for('static', filename=image.path) }}" alt="{{ image.name }}">
+            {% endfor %}
+        </ul>
+    </div>
+</body>
+
+{% endblock content %}

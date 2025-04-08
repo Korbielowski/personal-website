@@ -6,6 +6,12 @@ from datetime import datetime
 import time
 
 
+class Image:
+    def __init__(self, path, name=""):
+        self.path = path
+        self.name = name
+
+
 def render_links(text):
     prerendered_body = render_template_string(text)
     return markdown.markdown(prerendered_body, extensions=["pymdownx.tasklist"])
@@ -58,6 +64,18 @@ def portfolio(name: str):
         reverse=True,
     )
     return render_template("articles.html", articles=articles, year=year, is_blog=False)
+
+
+@app.route("/gallery")
+def gallery():
+    images = []
+    for image in listdir("static/gallery_images/"):
+        images.append(
+            Image(
+                "gallery_images/" + image, image.replace(".jpg", "").replace(".JPG", "")
+            )
+        )
+    return render_template("gallery.html", images=images)
 
 
 if __name__ == "__main__":
